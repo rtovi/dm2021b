@@ -1,4 +1,4 @@
-#Optimizacion Bayesiana de hiperparametros de  rpart
+#Optimizacion Bayesiana de hiperparametros de  ArbolesAzarosos
 #funciona automaticamente con EXPERIMENTOS
 #va generando incrementalmente salidas para kaggle
 
@@ -99,7 +99,7 @@ ArbolesAzarosos_Simple  <- function( fold_test, data, param, pcampos_buenos )
 {
   #genero el modelo
 
-  set.seed(102191)
+  set.seed(ksemilla_azar)
 
   qty_campos_a_utilizar  <- as.integer( length(pcampos_buenos) * param$feature_fraction )
 
@@ -175,7 +175,7 @@ EstimarGanancia_ArbolesAzarosos  <- function( x )
    {
      GLOBAL_ganancia_max <<-  ganancia  #asigno la nueva maxima ganancia
 
-     set.seed(102191)
+     set.seed(ksemilla_azar)
      
      qty_campos_a_utilizar  <- as.integer( length(campos_buenos) * x$feature_fraction )
      #inicializo vector donde acumulo probabilidades
