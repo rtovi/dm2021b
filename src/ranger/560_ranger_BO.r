@@ -36,7 +36,7 @@ hs  <- makeParamSet(
           makeIntegerParam("min.node.size" ,    lower=  1L  , upper=  500L),
           makeIntegerParam("mtry" ,             lower=  2L  , upper=   50L))
 
-ksemilla_azar  <- 102191  #Aqui poner la propia semilla
+ksemilla_azar  <- 704141  #Aqui poner la propia semilla
 #------------------------------------------------------------------------------
 #Funcion que lleva el registro de los experimentos
 
@@ -212,6 +212,8 @@ dataset  <- fread(karch_generacion, stringsAsFactors= TRUE)   #donde entreno
 
 dataset[ , clase_binaria := as.factor(ifelse( clase_ternaria=="BAJA+2", "POS", "NEG" )) ]
 dataset[ , clase_ternaria := NULL ]  #elimino la clase_ternaria, ya no la necesito
+dataset[ , mpasivos_margen := NULL ] 
+dataset[ , mactivos_margen := NULL ] 
 #imputo los nulos, ya que ranger no acepta nulos
 #Leo Breiman, ¿por que le temias a los nulos?
 dataset  <- na.roughfix( dataset )
