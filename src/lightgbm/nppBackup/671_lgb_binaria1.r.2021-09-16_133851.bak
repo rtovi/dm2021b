@@ -8,8 +8,6 @@
 #funciona automaticamente con EXPERIMENTOS
 #va generando incrementalmente salidas para kaggle
 
-# WARNING  usted debe cambiar este script si lo corre en su propio Linux
-
 #limpio la memoria
 rm( list=ls() )  #remove all objects
 gc()             #garbage collection
