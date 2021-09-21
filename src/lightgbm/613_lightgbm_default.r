@@ -45,9 +45,9 @@ prediccion  <- predict( modelo,
 
 #Genero la entrega para Kaggle
 entrega  <- as.data.table( list( "numero_de_cliente"= dapply[  , numero_de_cliente],
-                                 "Predicted"= prediccion > 0.025)  ) #genero la salida
+                                 "Predicted"= prediccion > 0.020)  ) #genero la salida
 
 #genero el archivo para Kaggle
 fwrite( entrega, 
-        file= "./kaggle/lightgbm_613.csv", 
+        file= "./kaggle/lightgbm_613_3.csv", 
         sep= "," )

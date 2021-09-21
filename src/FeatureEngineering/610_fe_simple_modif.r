@@ -9,7 +9,6 @@ gc()
 require("data.table")
 
 
-
 #Establezco el Working Directory
 #setwd( "~/buckets/b1/crudo" )
 #setwd("C:/Users/Gabriel/Desktop/Posgrado en Ciencia de Datos/Data Mining")
@@ -21,7 +20,7 @@ EnriquecerDataset <- function( dataset , arch_destino )
   #INICIO de la seccion donde se deben hacer cambios con variables nuevas
   #se crean los nuevos campos para MasterCard  y Visa, teniendo en cuenta los NA's
   #varias formas de combinar Visa_status y Master_status
-  #dataset[ , mv_status01   := pmax( Master_status,  Visa_status, na.rm = TRUE) ]
+  dataset[ , mv_status01   := pmax( Master_status,  Visa_status, na.rm = TRUE) ]
   #dataset[ , mv_status02   := Master_status +  Visa_status ]
   #dataset[ , mv_status05   := ifelse( is.na(Master_status), 10, Master_status)  +  100*ifelse( is.na(Visa_status), 10, Visa_status)  ]
   #dataset[ , mv_status06   := ifelse( is.na(Visa_status), ifelse( is.na(Master_status), 10, Master_status), Visa_status)  ]
